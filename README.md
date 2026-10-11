@@ -26,7 +26,7 @@ NOVA is designed to grow with you — from your first semester to your final the
 NOVA comes with a ready-to-use folder structure, templates, and automatically generated dashboards.
 
 1. Download this repository using **Code → Download ZIP**.
-2. Extract the ZIP file and open the folder as a vault in **Obsidian**.
+2. Extract the ZIP file, open the extracted repository folder, and select the `NOVA_Academic_Workspace` subfolder as your vault in Obsidian.
 3. Install the required community plugins.
 4. Follow the included setup checklist.
 5. Copy the **Course Starter** folder to add your first course.
