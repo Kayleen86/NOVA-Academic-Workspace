@@ -33,7 +33,7 @@ NOVA comes with a ready-to-use folder structure, templates, and automatically ge
 
 Your dashboards will automatically populate as you add courses, tasks, and examination dates.
 
-**📖 [Read the Complete User Guide](docs/USER_GUIDE.md)** for step-by-step setup instructions, customization, and troubleshooting.
+**📖 [Read the Complete User Guide](NOVA_Academic_Workspace/docs/USER_GUIDE.md)** for step-by-step setup instructions, customization, and troubleshooting.
 
 ## 🧩 Requirements
 
