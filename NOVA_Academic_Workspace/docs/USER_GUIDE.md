@@ -2,7 +2,7 @@
 
 **A reusable, English-language Obsidian vault for students.** NOVA is based on a real academic workflow, rebuilt without any specific course names, university names, personal notes, PDFs, or academic records. You can use it for almost any degree, training program or multi-course learning plan.
 
-**Project overview:** [GitHub README](../README.md) · **Open in Obsidian:** [START HERE](../START%20HERE.md) · **One-time setup:** [SETUP CHECKLIST](../SETUP%20CHECKLIST.md)
+**Project overview:** [GitHub README](../../README.md) · **Open in Obsidian:** [START HERE](../START%20HERE.md) · **One-time setup:** [SETUP CHECKLIST](../SETUP%20CHECKLIST.md)
 
 > **How this documentation is organized:** The repository's `README.md` is the short public introduction, maintained directly on GitHub. **This document, `docs/USER_GUIDE.md`, is the full instruction manual** for installing, configuring, and using NOVA. It is part of the Obsidian vault and is also readable on GitHub.
 
