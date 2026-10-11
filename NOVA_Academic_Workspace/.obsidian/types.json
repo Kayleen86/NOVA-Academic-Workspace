@@ -1,0 +1,29 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "type": "text",
+    "course_name": "text",
+    "semester": "text",
+    "course_type": "text",
+    "weekday": "text",
+    "start_time": "text",
+    "end_time": "text",
+    "location": "text",
+    "instructor": "text",
+    "course_url": "text",
+    "credits": "number",
+    "status": "text",
+    "exam_date": "date",
+    "exam_format": "text",
+    "exam_registered": "checkbox",
+    "exam_taken": "checkbox",
+    "grade": "text",
+    "date": "date",
+    "topic": "text",
+    "related_course": "text",
+    "reading_status": "text",
+    "year": "number"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "baseFontSize": 16,
+  "theme": "obsidian",
+  "cssTheme": "",
+  "enabledCssSnippets": [
+    "nova-dashboard",
+    "nova-tasks-clean"
+  ]
+}

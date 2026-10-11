@@ -1,0 +1,21 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [],
+  "exportFormats": [
+    {
+      "name": "NOVA Paper Note",
+      "outputPathTemplate": "04 Library/Zotero Papers/{{citekey}}.md",
+      "imageOutputPathTemplate": "04 Library/Zotero Papers/Images/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "07 Templates/Zotero Import Template.md",
+      "cslStyle": "apa"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": false,
+  "whichNotesToOpenAfterImport": "first-imported-note"
+}

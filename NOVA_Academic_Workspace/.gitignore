@@ -1,0 +1,18 @@
+# Local Obsidian UI state and cache
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace*.json
+.obsidian/cache/
+.obsidian/logs/
+.trash/
+
+# System and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*.tmp
+
+# NOTE: this does NOT protect personal study notes from being committed.
+# Use a separate PRIVATE repository for any vault with personal content.

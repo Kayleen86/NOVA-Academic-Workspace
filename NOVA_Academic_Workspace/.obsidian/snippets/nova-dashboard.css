@@ -1,0 +1,5 @@
+/* NOVA — optional visual polish; theme-neutral and safe to disable. */
+body { --h1-color: var(--interactive-accent); }
+.markdown-preview-view table { width: 100%; }
+.markdown-preview-view .callout { border-radius: 10px; }
+.home.markdown-preview-view h1 { letter-spacing: -0.025em; }

@@ -1,0 +1,3 @@
+/* NOVA — subtle Tasks spacing. Does not hide task descriptions or backlinks. */
+.plugin-tasks-query-result ul.contains-task-list { margin-top: 0.3rem; }
+.plugin-tasks-query-result .tasks-backlink { font-size: 0.85em; }
