@@ -19,37 +19,50 @@ grade: ""
 ---
 # 🎓 Course Overview
 
-[[01 Courses/Course Catalog|← All courses]] · [[02 Schedule/Weekly Timetable|Timetable]] · [[06 Exams/Exam Dashboard|Exams]]
+[[01 Courses/Course Catalog|← Courses]] · [[02 Schedule/Weekly Timetable|Timetable]] · [[03 Tasks & Deadlines/Task Dashboard|Task dashboard]] · [[06 Exams/Exam Dashboard|Exams]]
 
-> [!important] Complete the Properties above
-> Set **`course_name`** to the exact name of this course; set **`semester`** (same format across courses, e.g. `2027 Spring`), weekly meeting details, instructor and assessment information. Leave unannounced dates blank. `status` should be `active` during the semester and `archived` when it is finished.
-
-## Course information
-
-- **Course / learning platform:** Open `course_url` from the Properties above.
-- **Learning outcomes:** 
-- **Assessment requirements:** 
-- **Important contacts:** 
+> [!info] First: complete the Properties
+> Enter the course name, semester, instructor, course link, weekly schedule, credits and exam details **once in the Properties above**. Keep `type: course` and `status: active`. These values feed the shared dashboards; there is no need to repeat them below.
 
 ## Lecture notes
 
-[Open this course's Notes Index](../Notes/Index.md)
+[Open lecture notes](../Notes/Index.md) · [Manage course tasks](../Tasks/Tasks.md)
 
-Make a new Markdown file inside **`Notes/`** with a descriptive name such as `YYYY-MM-DD Topic`. Apply the **Lecture Note** core template. The Notes Index lists it automatically.
+Add your notes inside this course's `Notes/` folder. Apply the **Lecture Note** template to new notes; the Notes Index collects them automatically.
 
-## Materials
+## Course materials
 
-Put PDFs, handouts and slides in **`Materials/`**. Use `[[Filename.pdf]]` to link to a PDF without embedding a full preview; use `![[Filename.pdf]]` only when you want an embedded preview.
+Store course-specific **PDFs, slides, handouts and cheat sheets** in the course's `Materials/` folder. Everything in that folder appears below automatically, even if it is not linked in a lecture note. You do **not** need to edit this query when you copy and rename the Course Starter folder.
 
-## Tasks
+```base
+filters:
+  and:
+    - 'file.inFolder(this.file.folder.replace("/00 Overview", "") + "/Materials")'
+    - 'file.ext != "base"'
+formulas:
+  material: 'file.asLink(file.name)'
+properties:
+  formula.material:
+    displayName: "Document"
+  file.ext:
+    displayName: "Type"
+views:
+  - type: table
+    name: "Course files"
+    order:
+      - formula.material
+      - file.ext
+```
 
-[Open this course's Tasks file](../Tasks/Tasks.md) · [[03 Tasks & Deadlines/Task Dashboard|All tasks]]
+## Tasks & deadlines
 
-> Add or complete tasks in the course task file. They appear automatically on the [[03 Tasks & Deadlines/Task Dashboard|Task Dashboard]].
+[Open the course task list](../Tasks/Tasks.md) · [[03 Tasks & Deadlines/Task Dashboard|View all open tasks]]
+
+Enter new tasks in `Tasks/Tasks.md`. The shared Task Dashboard shows open items; completed checkboxes stay in the course task file.
 
 ## Related reading
 
-The `related_course` property on paper notes must match this course's `course_name`.
+Set `related_course` on reading notes to the **exact** `course_name` property above.
 
 ```dataview
 TABLE WITHOUT ID
@@ -61,11 +74,13 @@ WHERE (type = "paper" OR type = "reading-note") AND related_course = this.course
 SORT year DESC, file.name ASC
 ```
 
-## Exam preparation notes
+## Exam preparation
 
 - **Topics to review:**
 - **Practice questions / exercises:**
 - **Resources and past exams:**
 - **Registration notes:**
 
-## Ongoing notes and questions
+## Ongoing course notes
+
+- 

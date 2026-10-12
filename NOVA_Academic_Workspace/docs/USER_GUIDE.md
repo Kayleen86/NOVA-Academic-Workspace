@@ -10,14 +10,14 @@
 
 ## 1. What you get
 
-NOVA includes a course catalog, a weekly timetable, an aggregated task dashboard, exam tracking, lecture note indexes, a Zotero-friendly reading library, a permanent knowledge base, quick capture and weekly review pages. All course overview data is edited in **one place**: the course's `00 Overview/Overview.md`.
+NOVA includes a course catalog, a weekly timetable, an aggregated task dashboard, exam tracking, lecture note indexes, a Zotero-friendly reading library, a permanent knowledge base, quick capture and weekly review pages. Course metadata is edited **once in the Properties** of each course's `00 Overview/Overview.md`. Course files are indexed automatically from its own `Materials/` folder.
 
 **Design decisions:**
 
 - No actual courses or semester dates are pre-filled. All dashboards begin empty by design.
 - A new course is created by duplicating **one full folder** — no code or query rewriting is required.
 - For your lecture notes, Obsidian's built-in **Templates** plugin is enough; **Templater is not needed**.
-- **Dataview** shows automatic tables. **Tasks** aggregates ordinary Markdown checkboxes.
+- **Dataview** handles course and reading-note metadata; **Tasks** aggregates Markdown checkboxes; Obsidian's built-in **Bases** indexes PDFs and other course materials (no extra community plugin).
 - Zotero support is optional. No Zotero library, attachments, login, or personal data is bundled.
 - No third-party plugin executable files are included in the ZIP. Install current plugins from Obsidian's community plugin browser.
 
@@ -26,24 +26,24 @@ NOVA includes a course catalog, a weekly timetable, an aggregated task dashboard
 | Path | Purpose |
 |---|---|
 | `00 Inbox` | Capture notes or links before filing them |
-| `01 Courses` | Your own course folders and the automatic course catalog |
+| `01 Courses` | Course folders, catalog and the automatic **All Course Materials** PDF index |
 | `02 Schedule` | Recurring weekly timetable and one-off changes |
 | `03 Tasks & Deadlines` | Open, overdue and completed task queries |
 | `04 Library` | Papers, reading notes, useful links and cross-course notes |
 | `05 Knowledge Base` | Glossary and evergreen concept notes |
 | `06 Exams` | Active exam view and archived results |
 | `07 Templates` | Core templates, complete course starter, Zotero import template |
-| `08 Attachments` | General PDFs and pasted images not assigned to a course |
+| `08 Attachments` | Pasted images and other **unassigned** files; `Unsorted Attachments.md` lists them |
 | `09 Planning` | Weekly review and dated review archive |
 | `.obsidian` | Core settings, safe visual snippets and optional Zotero import settings |
 
 ## 3. First-time installation (desktop)
 
 1. On the GitHub project page, choose **Code → Download ZIP**, **extract** the download (do not open the ZIP as a vault), and keep the extracted folder in a stable location. The folder name may differ depending on how you downloaded it. You can also create a copy using **Use this template** if the repository owner enabled that GitHub feature.
-2. Install [Obsidian](https://obsidian.md/), then choose **Open folder as vault** and select that folder.
+2. Install [Obsidian](https://obsidian.md/), then choose **Open folder as vault** and select the **`NOVA_Academic_Workspace` subfolder** inside the extracted repository. This is the folder with `START HERE.md` and `.obsidian/`. **Do not open the outer GitHub repository folder as your vault.**
 3. Open [START HERE](../START%20HERE.md) and [SETUP CHECKLIST](../SETUP%20CHECKLIST.md).
 4. In **Settings → Community plugins**, choose to enable community plugins **only if you trust the installed plugin authors and source**. Use the plugin browser to install **Dataview** and **Tasks**, then enable each plugin. The first view may display literal `dataview` or `tasks` code blocks until the plugin is active.
-5. In **Settings → Core plugins**, enable **Templates**; in **Settings → Templates**, select `07 Templates` as the folder. This vault already includes that path in its settings, but verify it after opening.
+5. In **Settings → Core plugins**, enable **Templates** and **Bases**; in **Settings → Templates**, select `07 Templates` as the folder. This vault already includes that path in its settings, but verify it after opening.
 6. Optional: in **Settings → Appearance → CSS snippets**, enable `nova-dashboard` and `nova-tasks-clean`. The workspace remains usable without them.
 7. Optional: install **Zotero Integration** and follow section 9 before importing your first item. **Drag & Drop Sort** is optional, not needed by the dashboard queries.
 8. Create your first course as described in section 4. The automatic course, timetable and exam views will then populate.
@@ -73,7 +73,7 @@ All included notes, headings, filenames and descriptions are English. Obsidian's
       Overview.md         <- edit course metadata here
     Notes/
       Index.md            <- automatic lecture note index
-    Materials/             <- PDFs, slides, handouts
+    Materials/             <- PDFs, slides, handouts; auto-listed in Overview
     Tasks/
       Tasks.md            <- enter tasks here
 ```
@@ -108,12 +108,25 @@ The starter intentionally has one regular `weekday/start_time/end_time/location`
 
 ## 5. Lecture notes and course material
 
+### Automatic file collections (Obsidian Bases)
+
+Every course Overview has a dynamic **Course materials** table that lists the PDFs, slides, handouts, images and Markdown cheat sheets in that course's `Materials/` folder. To add a file, copy it into `01 Courses/<YOUR COURSE>/Materials/` via Obsidian's File explorer or your operating system's file manager. Go back to the Overview to see it. **No manual link and no course-specific query edit is needed.**
+
+The table uses **Bases**, a built-in Obsidian core plugin. It reads the course's Materials folder from the current Overview's path, so the same query works when the complete Course Starter folder is duplicated and renamed. If you see raw `base` code instead of a table, check **Settings → Core plugins → Bases** and use Reading view.
+
+To find a PDF across *all* courses, use [[01 Courses/All Course Materials|All Course Materials]] (also linked from Home and Course Catalog). It groups PDFs by the corresponding course's Materials folder. The global collection intentionally shows only PDFs; the individual Overview lists all files in its Materials directory.
+
+**Where should attachments go?** Use each course's **`Materials/`** folder for course documents. `08 Attachments/` remains the default destination for pasted images and miscellaneous files. Its [[08 Attachments/Unsorted Attachments|Unsorted Attachments]] page displays files that still need sorting. When moving an already linked PDF, prefer Obsidian's File explorer with automatic link updates enabled.
+
+You may **also link a PDF from a lecture note**; the automatic material list does not replace those contextual links. It simply prevents PDFs from getting lost across folders.
+
+
 1. Enter the new course's `Notes` folder.
 2. Create a new note with a descriptive filename, e.g. `2027-03-15 First Lecture.md`.
 3. Use **Ctrl+P → Templates: Insert template → Lecture Note** (menu wording may vary). You can also use the Templates command from Obsidian's ribbon.
 4. Set `topic` in Properties; the `date` field uses the core template's `{{date}}` token, which resolves when inserted.
 5. Write notes under Main points, Details, Open questions and Materials. The **Notes/Index.md** automatically lists notes marked `type: lecture-note` in the same folder.
-6. Save course PDFs in that course's **Materials/** folder. For a clickable link only, use `[[Document.pdf]]`; for a large inline PDF preview use `![[Document.pdf]]`.
+6. Save course PDFs in the course's **Materials/** folder. They appear automatically on its Overview and in **All Course Materials** without manual links. For a clickable link within lecture notes use `[[Document.pdf]]`; to embed a large preview use `![[Document.pdf]]`.
 
 **Why the query is reusable:** Each copied Notes Index uses `file.folder = this.file.folder` to find notes next to itself, not a hard-coded original course name. **Do not manually rename** the `type` value or store all lecture notes in a shared folder if you want automatic per-course indexes.
 
@@ -217,6 +230,8 @@ The [Quick Capture](../00%20Inbox/Quick%20Capture.md) note is an intentionally s
 
 | Symptom | Likely cause / fix |
 |---|---|
+| Course materials list shows `base` code or stays blank | Enable **Bases** under Settings → Core plugins, use Reading view and check that files are inside this course's `Materials/` folder (not `08 Attachments`). |
+| PDFs are missing from **All Course Materials** | Save the PDFs under `01 Courses/<Course name>/Materials/`. The global index intentionally lists PDFs only. |
 | Dataview block displays as code | Install and enable **Dataview** in Community plugins. Switch to Reading view if needed. |
 | Tasks block displays as code | Install and enable **Tasks**. Use a valid `- [ ]` checkbox in a course Tasks file. |
 | Tasks warns that JavaScript queries are disabled | You likely have an older custom query using `group by function`. The bundled NOVA dashboard uses `group by folder` and requires **no JavaScript permission**. Replace the modified dashboard with the current repository version. |
@@ -244,24 +259,25 @@ Before you publicly publish a personalized copy:
 4. Do not distribute third-party plugins as copied binary files; direct recipients to the official plugin browser.
 5. Share a **copy**, not your live study vault. Keep backups before applying new plugin versions or changing a template.
 
-This repository ships only generic template content and settings, with **no** user course data, source PDFs, exam results, Zotero library content, API keys or Obsidian workspace history. For maintainers, follow the [GitHub publishing guide](GITHUB_PUBLISHING.md) before making a repository public.
+This repository ships only generic template content and settings, with **no** user course data, source PDFs, exam results, Zotero library content, API keys or Obsidian workspace history. Keep your personal vault separate from this public template. The project's central MIT license is in the **repository root**, one level above the vault folder.
 
-**GitHub documentation layout:** The repository's `README.md` is the short project introduction written on GitHub. This complete guide stays at `docs/USER_GUIDE.md`. The link `[Read the Complete User Guide](docs/USER_GUIDE.md)` in the GitHub README opens this guide automatically. Maintain the two files separately: updating one does not automatically rewrite the other.
+**GitHub documentation layout:** The GitHub repository has a short root `README.md` and `LICENSE`; the self-contained Obsidian vault is inside `NOVA_Academic_Workspace/`. The complete guide is at `NOVA_Academic_Workspace/docs/USER_GUIDE.md`, linked from the GitHub README. The root README sits outside the vault and can be read on GitHub; it isn't an Obsidian note within the downloaded vault.
 
 ## 14. How to verify NOVA yourself
 
-Use the following minimal smoke test:
+Use the following minimal smoke test (install **Bases** as a core plugin alongside the required Community plugins):
 
 1. Install Dataview and Tasks.
 2. Copy `Course Starter` into `01 Courses` and fill the `course_name`, `semester`, `weekday` and time properties.
 3. Check the Course Catalog and the correct weekday in the Weekly Timetable.
-4. Add an undated task in the copied `Tasks/Tasks.md`. It should appear under **No due date** on the Task Dashboard.
-5. Add a dated task with `📅` and verify it appears under upcoming or overdue, depending on date.
-6. Create a new lecture note under that course's `Notes/`, insert **Lecture Note**, set `topic` and verify the Notes Index.
-7. Fill `exam_date` and `exam_registered` in course Properties and check the Exam Dashboard.
-8. Mark a task completed; verify it disappears from the open-task lists but the course's **Done** count increases (the completed checkbox stays in the original course file).
-9. If Zotero is installed, import one reference and check both the Reading Library and the generated `persist` sections. Set `related_course` to the exact `course_name` and check the course's Related Reading section.
-10. Change the course `status` to `archived`. It should move to the archived course and exam views and disappear from the active timetable.
+4. Put a test PDF in that course's `Materials/` directory and confirm that **Course materials** on the Overview, plus [[01 Courses/All Course Materials|All Course Materials]], list the file automatically.
+5. Add an undated task in the copied `Tasks/Tasks.md`. It should appear under **No due date** on the Task Dashboard.
+6. Add a dated task with `📅` and verify it appears under upcoming or overdue, depending on date.
+7. Create a new lecture note under that course's `Notes/`, insert **Lecture Note**, set `topic` and verify the Notes Index.
+8. Fill `exam_date` and `exam_registered` in course Properties and check the Exam Dashboard.
+9. Mark a task completed; verify it disappears from the open-task lists but the course's **Done** count increases (the completed checkbox stays in the original course file).
+10. If Zotero is installed, import one reference and check both the Reading Library and the generated `persist` sections. Set `related_course` to the exact `course_name` and check the course's Related Reading section.
+11. Change the course `status` to `archived`. It should move to the archived course and exam views and disappear from the active timetable.
 
 **Need to modify the dashboards?** Their query source is plain text inside fenced `dataview` or `tasks` blocks. All folder names and properties are documented above; no other files need to be generated.
 
@@ -270,6 +286,7 @@ Use the following minimal smoke test:
 ### Built on well-documented Obsidian features
 
 - [Obsidian documentation](https://help.obsidian.md/)
+- [Bases documentation](https://help.obsidian.md/bases/syntax)
 - [Dataview documentation](https://blacksmithgu.github.io/obsidian-dataview/)
 - [Tasks documentation](https://publish.obsidian.md/tasks/)
 - [Zotero Integration Nunjucks templating](https://github.com/mgmeyers/obsidian-zotero-integration/blob/main/docs/Templating.md)

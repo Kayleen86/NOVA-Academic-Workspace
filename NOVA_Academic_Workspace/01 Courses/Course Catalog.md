@@ -1,6 +1,6 @@
 # 🎓 Course Catalog
 
-[[START HERE|← Home]] · [[02 Schedule/Weekly Timetable|Timetable]] · [[06 Exams/Exam Dashboard|Exams]]
+[[START HERE|← Home]] · [[02 Schedule/Weekly Timetable|Timetable]] · [[06 Exams/Exam Dashboard|Exams]] · [[01 Courses/All Course Materials|All course PDFs]]
 
 > [!tip] Add a course
 > Copy the **entire folder** `07 Templates/Course Starter` into `01 Courses`, rename the copied folder to your course name, then edit `00 Overview/Overview.md`. You do not need to edit any of the tables below.

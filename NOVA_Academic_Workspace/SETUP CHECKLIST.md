@@ -6,12 +6,14 @@ Follow these once on a new computer or in a newly shared copy.
 - [ ] Open [[docs/USER_GUIDE|Full user guide]] and read the *Privacy and sharing checklist* section.
 - [ ] In **Settings → Community plugins**, allow trusted community plugins.
 - [ ] Install and enable **Dataview** and **Tasks**.
-- [ ] In **Settings → Core plugins**, turn on **Templates**.
+- [ ] In **Settings → Core plugins**, turn on **Templates** and **Bases**.
 - [ ] In **Settings → Templates**, set the template folder to `07 Templates`.
 - [ ] Optional: install **Zotero Integration** and configure it using the full user guide.
 - [ ] Optional: enable both NOVA CSS snippets in **Settings → Appearance → CSS snippets**.
 - [ ] Copy the whole `07 Templates/Course Starter` folder into `01 Courses` and rename the copy to your first course.
-- [ ] Fill in the copy's `00 Overview/Overview.md` properties.
+- [ ] Fill in the copy's `00 Overview/Overview.md` properties. Do not duplicate instructor, credits or timetable in the note body.
+- [ ] Add a test PDF to the new course's `Materials/` folder. Confirm it appears in the Overview's **Course materials** view and in [[01 Courses/All Course Materials|All Course Materials]].
+- [ ] Use [[08 Attachments/Unsorted Attachments|Unsorted Attachments]] to review files not yet assigned to a course.
 - [ ] Open [[01 Courses/Course Catalog]] and check that the course appears.
 - [ ] Add a test task in that course's `Tasks/Tasks.md`, then check [[03 Tasks & Deadlines/Task Dashboard]].
 - [ ] Add a lecture note in `Notes/`, insert the **Lecture Note** core template, and check `Notes/Index.md`.
